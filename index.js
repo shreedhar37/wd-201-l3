@@ -1,6 +1,6 @@
 const todoList = () => {
   all = [];
-  currentDate = new Date().toISOString().split("T")[0];
+
   const add = (todoItem) => {
     all.push(todoItem);
   };
@@ -11,19 +11,25 @@ const todoList = () => {
   const overdue = () => {
     // Write the date check condition here and return the array of overdue items accordingly.
     // FILL YOUR CODE HERE
-    return all.filter((todoItem) => todoItem.dueDate < currentDate);
+    return all.filter(
+      (todoItem) => todoItem.dueDate < new Date().toISOString().split("T")[0]
+    );
   };
 
   const dueToday = () => {
     // Write the date check condition here and return the array of todo items that are due today accordingly.
     // FILL YOUR CODE HERE
-    return all.filter((todoItem) => todoItem.dueDate === currentDate);
+    return all.filter(
+      (todoItem) => todoItem.dueDate === new Date().toISOString().split("T")[0]
+    );
   };
 
   const dueLater = () => {
     // Write the date check condition here and return the array of todo items that are due later accordingly.
     // FILL YOUR CODE HERE
-    return all.filter((todoItem) => todoItem.dueDate > currentDate);
+    return all.filter(
+      (todoItem) => todoItem.dueDate > new Date().toISOString().split("T")[0]
+    );
   };
 
   const toDisplayableList = (list) => {
@@ -32,7 +38,9 @@ const todoList = () => {
     let OUTPUT_STRING = "";
     list.forEach((todoItem) => {
       OUTPUT_STRING += `[${todoItem.completed ? "x" : " "}] ${todoItem.title} ${
-        todoItem.dueDate === currentDate ? "" : todoItem.dueDate
+        todoItem.dueDate === new Date().toISOString().split("T")[0]
+          ? ""
+          : todoItem.dueDate
       }\n`;
     });
     return OUTPUT_STRING;
@@ -65,7 +73,7 @@ const yesterday = formattedDate(
   new Date(new Date().setDate(dateToday.getDate() - 1))
 );
 const tomorrow = formattedDate(
-  new Date(new Date().setDate(dateToday.getDate() + 2))
+  new Date(new Date().setDate(dateToday.getDate() + 1))
 );
 
 todos.add({ title: "Submit assignment", dueDate: yesterday, completed: false });
