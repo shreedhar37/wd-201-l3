@@ -39,7 +39,7 @@ const todoList = () => {
 
     for (let i = 0; i < list.length; i++) {
       if (i === list.length - 1) {
-        OUTPUT_STRING += `${list[i].completed ? "[x]" : "[]"} ${
+        OUTPUT_STRING += `${list[i].completed ? "[x]" : "[ ]"} ${
           list[i].title
         } ${
           list[i].dueDate === new Date().toISOString().split("T")[0]
