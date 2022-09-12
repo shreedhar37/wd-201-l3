@@ -39,13 +39,17 @@ const todoList = () => {
 
     for (let i = 0; i < list.length; i++) {
       if (i === list.length - 1) {
-        OUTPUT_STRING += `[${list[i].completed ? "x" : " "}] ${list[i].title} ${
+        OUTPUT_STRING += `${list[i].completed ? "[x]" : "[x]"} ${
+          list[i].title
+        } ${
           list[i].dueDate === new Date().toISOString().split("T")[0]
             ? ""
             : list[i].dueDate
         }`;
       } else {
-        OUTPUT_STRING += `[${list[i].completed ? "x" : " "}] ${list[i].title} ${
+        OUTPUT_STRING += `${list[i].completed ? "[x]" : "[ ]"} ${
+          list[i].title
+        } ${
           list[i].dueDate === new Date().toISOString().split("T")[0]
             ? ""
             : list[i].dueDate
